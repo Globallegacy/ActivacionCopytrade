@@ -114,7 +114,28 @@
       box-shadow:0 10px 28px rgba(0,0,0,.35);
       border:1px solid rgba(255,255,255,.06);
       background:#07152a;
+      cursor:zoom-in;
     }
+
+    /* Lightbox simple */
+    .lightbox{
+      position:fixed; inset:0; z-index:100;
+      background:rgba(0,0,0,.88);
+      display:none; align-items:center; justify-content:center;
+      padding:16px;
+    }
+    .lightbox.show{ display:flex; animation:fade .18s ease-out }
+    .lightbox img{
+      max-width:95vw; max-height:90vh;
+      border-radius:16px; box-shadow:0 18px 50px rgba(0,0,0,.5);
+    }
+    .lightbox .hint{
+      position:fixed; bottom:14px; left:0; right:0; text-align:center;
+      color:#cfe3ff; font-size:12px; opacity:.85;
+      padding:0 10px;
+    }
+    @keyframes fade{from{opacity:0} to{opacity:1}}
+    .no-scroll{ overflow:hidden; }
 
     /* Footer */
     footer{padding:24px 0;color:var(--muted);font-size:12px}
@@ -216,12 +237,14 @@
         </div>
       </div>
 
-      <!-- Paso 4: Telegram evidencia (con imagen que enviaste) -->
+      <!-- Paso 4: Telegram evidencia (con imagen + lightbox) -->
       <div class="step reveal delay-3" id="telegram">
         <h3>4) Enviar evidencia en Telegram</h3>
         <p class="mini">Pantallazo del backoffice con tu <b>nombre</b> y <b>membresía Innova</b> activa. Te avisaremos cuando quede activo (5–24 h).</p>
+
         <!-- Imagen de ejemplo; usamos ?raw=1 para renderizar desde GitHub -->
         <img
+          id="proofImage"
           class="proof reveal"
           src="https://github.com/Globallegacy/ActivacionCopytrade/blob/fbcb35cd877586e0ef0f2a89fb1f32e067582eaf/Imagen%20de%20WhatsApp%202025-10-04%20a%20las%2010.18.25_00bbac60.jpg?raw=1"
           alt="Ejemplo de evidencia: backoffice con nombre y membresía activa"
@@ -232,11 +255,12 @@
         </div>
       </div>
 
-      <!-- Paso 5: Monitoreo + Notificaciones de capital -->
+      <!-- Paso 5: Monitoreo + Notificaciones de capital + Video Short -->
       <div class="step reveal" id="monitoreo">
-        <h3>5) Monitorea y notifica cambios de capital</h3>
-        <p class="mini">Una vez confirmado, monitorea en MetaTrader 5. <b>Cada vez que deposites o retires</b>, <u>debes notificarlo</u> en el mismo Telegram para actualizar tu estrategia.</p>
-        <div class="row" style="margin-top:8px">
+        <h3>5) Conecta tu MetaTrader 5 y monitorea resultados</h3>
+        <p class="mini">Sigue el video para enlazar tu cuenta y ver operaciones/estadísticas. <b>Cada depósito o retiro</b> debes <u>notificarlo</u> en el mismo Telegram para actualizar la estrategia.</p>
+        <iframe class="short" src="https://www.youtube.com/embed/-kXINXh3DCs?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 5 - Enlazar MT5 y monitorear resultados" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <div class="row" style="margin-top:10px">
           <a class="btn" href="https://t.me/+lijy2vcx8DliMjdh" target="_blank" rel="noopener">Notificar depósito/retiro</a>
         </div>
       </div>
@@ -251,6 +275,12 @@
     </div>
   </footer>
 
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de la evidencia">
+    <img id="lightboxImg" alt="Evidencia ampliada" />
+    <div class="hint">Toca en cualquier parte o presiona Esc para cerrar</div>
+  </div>
+
   <script>
     // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -261,8 +291,33 @@
         if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
       });
     }, {threshold: 0.12});
-
     document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Lightbox simple para la imagen de evidencia
+    const proof = document.getElementById('proofImage');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+
+    function openLB(src){
+      lbImg.src = src;
+      lb.classList.add('show');
+      document.body.classList.add('no-scroll');
+    }
+    function closeLB(){
+      lb.classList.remove('show');
+      document.body.classList.remove('no-scroll');
+      // pequeña pausa para evitar ver el cambio de src al reabrir inmediatamente
+      setTimeout(()=>{ lbImg.removeAttribute('src'); }, 150);
+    }
+
+    if(proof){
+      proof.addEventListener('click', ()=> openLB(proof.src));
+      proof.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ openLB(proof.src); }});
+      proof.setAttribute('tabindex','0'); // accesible por teclado
+      proof.setAttribute('aria-label','Ver imagen de evidencia ampliada');
+    }
+    lb.addEventListener('click', closeLB);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb.classList.contains('show')) closeLB(); });
   </script>
 </body>
 </html>

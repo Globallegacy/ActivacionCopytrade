@@ -104,6 +104,18 @@
     /* Shorts */
     .short{width:100%;max-width:420px;aspect-ratio:9/16;border:0;border-radius:16px;background:#07152a;margin:12px auto 0}
 
+    /* Imagen de ejemplo en Paso 4 */
+    .proof{
+      width:100%;
+      max-width:520px;
+      border-radius:16px;
+      display:block;
+      margin:12px auto 0;
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.06);
+      background:#07152a;
+    }
+
     /* Footer */
     footer{padding:24px 0;color:var(--muted);font-size:12px}
     .footer-in{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:10px}
@@ -204,11 +216,18 @@
         </div>
       </div>
 
-      <!-- Paso 4: Telegram evidencia -->
+      <!-- Paso 4: Telegram evidencia (con imagen que enviaste) -->
       <div class="step reveal delay-3" id="telegram">
         <h3>4) Enviar evidencia en Telegram</h3>
         <p class="mini">Pantallazo del backoffice con tu <b>nombre</b> y <b>membresía Innova</b> activa. Te avisaremos cuando quede activo (5–24 h).</p>
-        <div class="row" style="margin-top:8px">
+        <!-- Imagen de ejemplo; usamos ?raw=1 para renderizar desde GitHub -->
+        <img
+          class="proof reveal"
+          src="https://github.com/Globallegacy/ActivacionCopytrade/blob/fbcb35cd877586e0ef0f2a89fb1f32e067582eaf/Imagen%20de%20WhatsApp%202025-10-04%20a%20las%2010.18.25_00bbac60.jpg?raw=1"
+          alt="Ejemplo de evidencia: backoffice con nombre y membresía activa"
+          loading="lazy"
+        />
+        <div class="row" style="margin-top:12px">
           <a class="btn" href="https://t.me/+lijy2vcx8DliMjdh" target="_blank" rel="noopener">Abrir Telegram</a>
         </div>
       </div>

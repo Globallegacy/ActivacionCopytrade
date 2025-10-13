@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Activación Copytrade — Pasos rápidos</title>
-  <meta name="description" content="Activa tu copytrade en 4 pasos. Estilo limpio, mobile-first.">
+  <title>Copytrade Activation — Quick Steps</title>
+  <meta name="description" content="Activate your copytrade in 4 quick steps. Clean, mobile-first guide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter para texto general + Poppins 700 para títulos -->
+  <!-- Inter for body + Poppins 700 for headings -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0a0f1a;
       --text:#eef6ff;
       --muted:#b6c7e5;
-      --grad1:#c9eeff; /* azulito claro */
-      --grad2:#62c3ff; /* azulito más intenso */
+      --grad1:#c9eeff; /* light blue */
+      --grad2:#62c3ff; /* brighter blue */
       --border:rgba(255,255,255,.10);
       --maxw:820px;
     }
@@ -35,7 +35,7 @@
     .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
     .center{text-align:center}
 
-    /* TÍTULOS POPPINS NEGRITA */
+    /* Headings: Poppins Bold */
     h1, h2, h3{
       font-family:Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       font-weight:700;
@@ -47,7 +47,7 @@
     h2{font-size:22px}
     h3{font-size:18px}
 
-    /* Banner imagen Trustpilot (click -> broker) */
+    /* Trustpilot banner (click → broker) */
     .banner{
       display:block;
       width:100%;
@@ -108,7 +108,7 @@
     footer{padding:24px 0;color:var(--muted);font-size:12px}
     .footer-in{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:10px}
 
-    /* Apariciones (animaciones) */
+    /* Reveal animations */
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
     .delay-1{transition-delay:.08s}
@@ -124,13 +124,13 @@
 </head>
 <body>
 
-  <!-- Banner imagen Trustpilot (click abre registro del broker) -->
+  <!-- Trustpilot banner (click opens broker registration) -->
   <div class="banner">
     <div class="in">
       <a href="https://strex.live/AN3iAz" target="_blank" rel="noopener" class="reveal">
         <img
           src="https://consumersiteimages.trustpilot.net/business-units/header/64f07c73d79983d2c4f69d14-1072x149-2x.jpg"
-          alt="STARTRADER en Trustpilot — clic para registrarte en el broker"
+          alt="STARTRADER on Trustpilot — click to open broker registration"
           loading="eager"
           width="1072"
           height="149"
@@ -144,11 +144,11 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <span style="font-family:Poppins;font-weight:700;">Activación Copytrade</span>
+        <span style="font-family:Poppins;font-weight:700;">Copytrade Activation</span>
       </div>
       <nav>
-        <a href="#pasos">Pasos</a>
-        <a class="cta" href="#broker">Empezar</a>
+        <a href="#steps">Steps</a>
+        <a class="cta" href="#broker">Start</a>
       </nav>
     </div>
   </header>
@@ -156,61 +156,61 @@
   <!-- Hero -->
   <section class="hero center">
     <div class="container">
-      <span class="chip reveal">Bienvenida</span>
-      <h1 class="reveal delay-1">Activa tu Copytrade en 4 pasos</h1>
-      <p class="lead reveal delay-2">Flujo rápido: broker → verificación → fondeo → consentimiento → MT5 & monitoreo.</p>
+      <span class="chip reveal">Welcome</span>
+      <h1 class="reveal delay-1">Activate your Copytrade in 4 steps</h1>
+      <p class="lead reveal delay-2">Fast flow: broker → verification → funding → consent → MT5 & monitoring.</p>
       <div class="kpis reveal delay-3">
-        <span><b>MT5</b> por defecto</span>
-        <span><b>USD / Free Swap</b> &gt; $1,000</span>
-        <span>Tiempo: <b>5–24 h</b></span>
+        <span><b>MT5</b> by default</span>
+        <span><b>USD / Free Swap</b> for &gt; $1,000</span>
+        <span>Activation: <b>5–24 h</b></span>
       </div>
       <div class="row reveal delay-3">
-        <a class="btn" href="#broker">Paso 1</a>
-        <a class="btn ghost" href="#pasos">Ver todos</a>
+        <a class="btn" href="#broker">Step 1</a>
+        <a class="btn ghost" href="#steps">See all</a>
       </div>
-      <div class="note reveal delay-3">Usa tus datos reales y documentos &le; 90 días.</div>
+      <div class="note reveal delay-3">Use your real data and address proof ≤ 90 days old.</div>
     </div>
   </section>
 
-  <!-- Guía -->
-  <section id="pasos" class="guide center">
+  <!-- Guide -->
+  <section id="steps" class="guide center">
     <div class="container">
-      <h2 class="reveal">Pasos</h2>
+      <h2 class="reveal">Steps</h2>
 
-      <!-- Paso 1 (incluye verificación en el mismo video) -->
+      <!-- Step 1 -->
       <div class="step reveal" id="broker">
-        <h3>1) Crear cuenta en el broker (y verificación)</h3>
-        <p class="mini">Abre el enlace oficial y regístrate. El video muestra también cómo verificar (ID + comprobante &le; 90 días, a tu nombre).</p>
-        <iframe class="short" src="https://www.youtube.com/embed/XMuT7yxIFZM?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 1 - Crear cuenta broker" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <h3>1) Create your broker account (and basic verification)</h3>
+        <p class="mini">Open the official link and sign up. The video also shows how to verify (ID + address proof ≤ 90 days, under your name).</p>
+        <iframe class="short" src="https://www.youtube.com/embed/7mJygLzVN_Q?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Step 1 - Create broker account" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         <div class="row" style="margin-top:12px">
-          <a class="btn" href="https://strex.live/AN3iAz" target="_blank" rel="noopener">Abrir broker en nueva pestaña</a>
+          <a class="btn" href="https://strex.live/AN3iAz" target="_blank" rel="noopener">Open broker in new tab</a>
         </div>
-        <p class="mini" style="margin-top:8px">MT5 por defecto. Si fondeas &gt; $1,000 USD elige <b>USD</b> y <b>Free Swap</b>.</p>
+        <p class="mini" style="margin-top:8px">Default platform: <b>MT5</b>. If funding &gt; $1,000 USD choose <b>USD</b> and <b>Free Swap</b>.</p>
       </div>
 
-      <!-- Paso 2: Fondear -->
-      <div class="step reveal delay-1" id="fondeo">
-        <h3>2) Fondear tu cuenta</h3>
-        <p class="mini">Sigue el tutorial corto para depositar fondos.</p>
-        <iframe class="short" src="https://www.youtube.com/embed/lHsVb9KfLgU?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 2 - Fondear cuenta" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      <!-- Step 2: Funding -->
+      <div class="step reveal delay-1" id="funding">
+        <h3>2) Fund your account</h3>
+        <p class="mini">Follow this short tutorial to deposit funds.</p>
+        <iframe class="short" src="https://www.youtube.com/embed/FJHPTpimOx0?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Step 2 - Fund your account" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
       </div>
 
-      <!-- Paso 3: Consentimiento -->
-      <div class="step reveal delay-2" id="consentimiento">
-        <h3>3) Firmar el consentimiento</h3>
-        <p class="mini"><b>Obligatorio</b> para activar tu cuenta.</p>
+      <!-- Step 3: Consent (UPDATED LINK) -->
+      <div class="step reveal delay-2" id="consent">
+        <h3>3) Sign the consent form</h3>
+        <p class="mini"><b>Mandatory</b> to activate your strategy.</p>
         <div class="row" style="margin-top:8px">
-          <a class="btn" href="https://forms.gle/x6TthrvFs2ExYYBJ9" target="_blank" rel="noopener">Abrir formulario</a>
+          <a class="btn" href="https://forms.gle/wsKs6w3cHKzU9Pvd7" target="_blank" rel="noopener">Open form</a>
         </div>
       </div>
 
-      <!-- Paso 4 (antes 5): MT5 + monitoreo + notificaciones -->
-      <div class="step reveal" id="monitoreo">
-        <h3>4) Conecta tu MetaTrader 5 y monitorea resultados</h3>
-        <p class="mini">Sigue el video para enlazar tu cuenta y ver operaciones/estadísticas. <b>Cada depósito o retiro</b> debes <u>notificarlo</u> en el Telegram indicado para actualizar la estrategia.</p>
-        <iframe class="short" src="https://www.youtube.com/embed/-kXINXh3DCs?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 4 - Enlazar MT5 y monitorear resultados" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      <!-- Step 4: MT5 + monitoring + notify changes -->
+      <div class="step reveal" id="mt5">
+        <h3>4) Link your MetaTrader 5 & monitor results</h3>
+        <p class="mini">Use this video to link your account and view trades/stats. <b>Every time you deposit or withdraw</b>, you must <u>notify it</u> in the Telegram channel so we can update your strategy.</p>
+        <iframe class="short" src="https://www.youtube.com/embed/37vMK86Z1W8?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Step 4 - Link MT5 & monitor results" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         <div class="row" style="margin-top:10px">
-          <a class="btn" href="https://t.me/+lijy2vcx8DliMjdh" target="_blank" rel="noopener">Notificar depósito/retiro</a>
+          <a class="btn" href="https://t.me/+lijy2vcx8DliMjdh" target="_blank" rel="noopener">Notify deposit/withdrawal</a>
         </div>
       </div>
     </div>
@@ -220,15 +220,15 @@
   <footer>
     <div class="container footer-in">
       <div>© <span id="year"></span> Copytrade</div>
-      <div class="mini">Riesgo: puedes perder capital. Rendimientos pasados no garantizan resultados futuros.</div>
+      <div class="mini">Risk warning: Trading involves risk of loss. Past performance does not guarantee future results.</div>
     </div>
   </footer>
 
   <script>
-    // Año dinámico
+    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animaciones de aparición (IntersectionObserver)
+    // Reveal animations (IntersectionObserver)
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }

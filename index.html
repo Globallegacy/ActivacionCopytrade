@@ -1,23 +1,24 @@
-<!DOCTYPE html>
+​<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Activación Copytrade — Pasos rápidos</title>
-  <meta name="description" content="Activa tu copytrade en 4 pasos. Estilo limpio, mobile-first.">
+  <meta name="description" content="Activa tu copytrade en 4 pasos. Guía limpia, mobile-first.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter para texto general + Poppins 700 para títulos -->
+  <!-- Inter para cuerpo + Poppins 700 para títulos -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0a0f1a;
       --text:#eef6ff;
       --muted:#b6c7e5;
-      --grad1:#c9eeff; /* azulito claro */
-      --grad2:#62c3ff; /* azulito más intenso */
+      --grad1:#c9eeff; /* azul claro */
+      --grad2:#62c3ff; /* azul un poco más intenso */
       --border:rgba(255,255,255,.10);
       --maxw:820px;
+      --accent:#061b30;
     }
     *{box-sizing:border-box}
     html,body{
@@ -35,7 +36,7 @@
     .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
     .center{text-align:center}
 
-    /* TÍTULOS POPPINS NEGRITA */
+    /* Títulos: Poppins Bold */
     h1, h2, h3{
       font-family:Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       font-weight:700;
@@ -47,30 +48,17 @@
     h2{font-size:22px}
     h3{font-size:18px}
 
-    /* Banner imagen Trustpilot (click -> broker) */
+    /* Banner Trustpilot (clic → broker) */
     .banner{
       display:block;
       width:100%;
       background:rgba(255,255,255,.04);
       border-bottom:1px solid var(--border);
     }
-    .banner .in{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:8px 0;
-    }
-    .banner a{
-      display:block;
-      width:100%;
-      border-radius:12px;
-      overflow:hidden;
-      transform:translateZ(0);
-    }
+    .banner .in{max-width:var(--maxw);margin:0 auto;padding:8px 0}
+    .banner a{display:block;width:100%;border-radius:12px;overflow:hidden;transform:translateZ(0)}
     .banner img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:12px;
+      width:100%;height:auto;display:block;border-radius:12px;
       box-shadow:0 8px 24px rgba(0,0,0,.25);
       transition:transform .35s ease, opacity .35s ease;
     }
@@ -82,20 +70,29 @@
     .brand{display:flex;align-items:center;gap:10px}
     .logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--grad1),var(--grad2))}
     .nav a{padding:8px 10px}
-    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#031629;font-weight:800}
+    .cta{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;
+      background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#031629;font-weight:800
+    }
 
     /* Hero */
     .hero{padding:38px 0 18px;border-bottom:1px solid var(--border)}
-    .chip{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(137,214,255,.16);border:1px solid rgba(137,214,255,.35);font-size:12px;margin:0 auto}
+    .chip{
+      display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;
+      background:rgba(137,214,255,.16);border:1px solid rgba(137,214,255,.35);font-size:12px;margin:0 auto
+    }
     .lead{margin:0 auto 12px;color:var(--muted);max-width:36ch}
     .kpis{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0 12px}
     .kpis span{padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);font-size:13px}
     .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#061b30;font-weight:800}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:14px;
+      background:linear-gradient(135deg,var(--grad1),var(--grad2));color:var(--accent);font-weight:800
+    }
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);font-weight:700}
     .note{color:var(--muted);font-size:12px;margin-top:8px}
 
-    /* Guide */
+    /* Sección guía */
     section.guide{padding:28px 0;border-bottom:1px solid var(--border)}
     .step{padding:18px 0;border-top:1px dashed var(--border)}
     .step:first-of-type{border-top:none;padding-top:0}
@@ -104,18 +101,34 @@
     /* Shorts */
     .short{width:100%;max-width:420px;aspect-ratio:9/16;border:0;border-radius:16px;background:#07152a;margin:12px auto 0}
 
+    /* Callout muy llamativo (antes del video del paso 1) */
+    .callout{
+      margin:14px auto 10px; max-width:560px; text-align:center; position:relative;
+      padding:12px 14px; border-radius:16px; font-weight:800; color:var(--accent);
+      background:linear-gradient(135deg,var(--grad1),var(--grad2));
+      box-shadow:0 10px 28px rgba(98,195,255,.28);
+      text-transform:uppercase; letter-spacing:.4px;
+    }
+    .callout small{display:block; font-weight:700; opacity:.9; color:#06243f; text-transform:none; letter-spacing:.2px}
+
+    .tipo-cuenta{
+      width:100%; max-width:560px; display:block; margin:10px auto 6px;
+      border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08); background:#07152a;
+    }
+
     /* Footer */
     footer{padding:24px 0;color:var(--muted);font-size:12px}
     .footer-in{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:10px}
 
-    /* Apariciones (animaciones) */
+    /* Animaciones de aparición */
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
     .delay-1{transition-delay:.08s}
     .delay-2{transition-delay:.16s}
     .delay-3{transition-delay:.24s}
 
-    /* Desktop tweaks */
+    /* Desktop */
     @media (min-width: 860px){
       h1{font-size:34px}
       .lead{font-size:16px}
@@ -124,16 +137,14 @@
 </head>
 <body>
 
-  <!-- Banner imagen Trustpilot (click abre registro del broker) -->
+  <!-- Banner Trustpilot (clic abre broker) -->
   <div class="banner">
     <div class="in">
       <a href="https://strex.live/AN3iAz" target="_blank" rel="noopener" class="reveal">
         <img
           src="https://consumersiteimages.trustpilot.net/business-units/header/64f07c73d79983d2c4f69d14-1072x149-2x.jpg"
           alt="STARTRADER en Trustpilot — clic para registrarte en el broker"
-          loading="eager"
-          width="1072"
-          height="149"
+          loading="eager" width="1072" height="149"
         />
       </a>
     </div>
@@ -162,13 +173,13 @@
       <div class="kpis reveal delay-3">
         <span><b>MT5</b> por defecto</span>
         <span><b>USD / Free Swap</b> &gt; $1,000</span>
-        <span>Tiempo: <b>5–24 h</b></span>
+        <span>Activación: <b>5–24 h</b></span>
       </div>
       <div class="row reveal delay-3">
         <a class="btn" href="#broker">Paso 1</a>
         <a class="btn ghost" href="#pasos">Ver todos</a>
       </div>
-      <div class="note reveal delay-3">Usa tus datos reales y documentos &le; 90 días.</div>
+      <div class="note reveal delay-3">Usa tus datos reales y comprobante de dirección ≤ 90 días.</div>
     </div>
   </section>
 
@@ -177,38 +188,64 @@
     <div class="container">
       <h2 class="reveal">Pasos</h2>
 
-      <!-- Paso 1 (incluye verificación en el mismo video) -->
+      <!-- Paso 1 (imagen destacada + video) -->
       <div class="step reveal" id="broker">
-        <h3>1) Crear cuenta en el broker (y verificación)</h3>
-        <p class="mini">Abre el enlace oficial y regístrate. El video muestra también cómo verificar (ID + comprobante &le; 90 días, a tu nombre).</p>
-        <iframe class="short" src="https://www.youtube.com/embed/XMuT7yxIFZM?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 1 - Crear cuenta broker" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <h3>1) Crear cuenta en el broker (y verificación básica)</h3>
+        <p class="mini">Abre el enlace oficial y regístrate. El video también muestra cómo verificar (ID + comprobante ≤ 90 días, a tu nombre).</p>
+
+        <!-- LLAMADO MUY NOTORIO -->
+        <div class="callout">Este es el <u>tipo de cuenta</u> que debes crear
+          <small>Revísalo antes de continuar. Fondear &gt; $1,000 USD: elige <b>USD</b> + <b>MT5 + Standard Free Swap</b>.</small>
+        </div>
+
+        <!-- Imagen ANTES del video -->
+        <img class="tipo-cuenta"
+             src="https://github.com/Globallegacy/ActivacionCopytrade/blob/cc11a6e79828c48b2ab9415d716abdeddbb2dfff/Captura%20de%20pantalla%202025-10-13%20200201.png?raw=1"
+             alt="Ejemplo del tipo de cuenta correcto a crear"
+             loading="lazy" />
+
+        <!-- Video Paso 1 -->
+        <iframe class="short"
+          src="https://www.youtube.com/embed/7mJygLzVN_Q?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+          title="Paso 1 - Crear cuenta en el broker"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
+
         <div class="row" style="margin-top:12px">
           <a class="btn" href="https://strex.live/AN3iAz" target="_blank" rel="noopener">Abrir broker en nueva pestaña</a>
         </div>
-        <p class="mini" style="margin-top:8px">MT5 por defecto. Si fondeas &gt; $1,000 USD elige <b>USD</b> y <b>Free Swap</b>.</p>
+        <p class="mini" style="margin-top:8px">Plataforma por defecto: <b>MT5</b>.</p>
       </div>
 
-      <!-- Paso 2: Fondear -->
+      <!-- Paso 2: Fondeo -->
       <div class="step reveal delay-1" id="fondeo">
         <h3>2) Fondear tu cuenta</h3>
-        <p class="mini">Sigue el tutorial corto para depositar fondos.</p>
-        <iframe class="short" src="https://www.youtube.com/embed/lHsVb9KfLgU?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 2 - Fondear cuenta" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <p class="mini">Sigue este corto para depositar fondos.</p>
+        <iframe class="short"
+          src="https://www.youtube.com/embed/FJHPTpimOx0?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+          title="Paso 2 - Fondear cuenta"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
       </div>
 
-      <!-- Paso 3: Consentimiento -->
+      <!-- Paso 3: Consentimiento (link actualizado) -->
       <div class="step reveal delay-2" id="consentimiento">
         <h3>3) Firmar el consentimiento</h3>
-        <p class="mini"><b>Obligatorio</b> para activar tu cuenta.</p>
+        <p class="mini"><b>Obligatorio</b> para activar tu estrategia.</p>
         <div class="row" style="margin-top:8px">
-          <a class="btn" href="https://forms.gle/x6TthrvFs2ExYYBJ9" target="_blank" rel="noopener">Abrir formulario</a>
+          <a class="btn" href="https://forms.gle/wsKs6w3cHKzU9Pvd7" target="_blank" rel="noopener">Abrir formulario</a>
         </div>
       </div>
 
-      <!-- Paso 4 (antes 5): MT5 + monitoreo + notificaciones -->
-      <div class="step reveal" id="monitoreo">
-        <h3>4) Conecta tu MetaTrader 5 y monitorea resultados</h3>
-        <p class="mini">Sigue el video para enlazar tu cuenta y ver operaciones/estadísticas. <b>Cada depósito o retiro</b> debes <u>notificarlo</u> en el Telegram indicado para actualizar la estrategia.</p>
-        <iframe class="short" src="https://www.youtube.com/embed/-kXINXh3DCs?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" title="Paso 4 - Enlazar MT5 y monitorear resultados" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      <!-- Paso 4: MT5 + monitoreo + notificar cambios -->
+      <div class="step reveal" id="mt5">
+        <h3>4) Conecta MetaTrader 5 y monitorea resultados</h3>
+        <p class="mini">Usa este video para enlazar tu cuenta y ver operaciones/estadísticas. <b>Cada depósito o retiro</b> debes <u>notificarlo</u> en el Telegram indicado para actualizar tu estrategia.</p>
+        <iframe class="short"
+          src="https://www.youtube.com/embed/37vMK86Z1W8?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+          title="Paso 4 - Enlazar MT5 y monitorear resultados"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
         <div class="row" style="margin-top:10px">
           <a class="btn" href="https://t.me/+lijy2vcx8DliMjdh" target="_blank" rel="noopener">Notificar depósito/retiro</a>
         </div>
@@ -220,7 +257,7 @@
   <footer>
     <div class="container footer-in">
       <div>© <span id="year"></span> Copytrade</div>
-      <div class="mini">Riesgo: puedes perder capital. Rendimientos pasados no garantizan resultados futuros.</div>
+      <div class="mini">Riesgo: operar implica posibilidad de pérdida. Rendimientos pasados no garantizan resultados futuros.</div>
     </div>
   </footer>
 
@@ -228,13 +265,13 @@
     // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animaciones de aparición (IntersectionObserver)
+    // Animaciones de aparición
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
       });
     }, {threshold: 0.12});
-    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+    document.querySelectorAll('.reveal, .callout, .tipo-cuenta').forEach(el=> io.observe(el));
   </script>
 </body>
 </html>

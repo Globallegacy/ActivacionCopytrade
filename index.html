@@ -1,4 +1,4 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -92,7 +92,7 @@
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);font-weight:700}
     .note{color:var(--muted);font-size:12px;margin-top:8px}
 
-    /* Sección guía */
+    /* Guía */
     section.guide{padding:28px 0;border-bottom:1px solid var(--border)}
     .step{padding:18px 0;border-top:1px dashed var(--border)}
     .step:first-of-type{border-top:none;padding-top:0}
@@ -101,7 +101,7 @@
     /* Shorts */
     .short{width:100%;max-width:420px;aspect-ratio:9/16;border:0;border-radius:16px;background:#07152a;margin:12px auto 0}
 
-    /* Callout muy llamativo (antes del video del paso 1) */
+    /* Callouts + imágenes (Paso 1) */
     .callout{
       margin:14px auto 10px; max-width:560px; text-align:center; position:relative;
       padding:12px 14px; border-radius:16px; font-weight:800; color:var(--accent);
@@ -111,11 +111,42 @@
     }
     .callout small{display:block; font-weight:700; opacity:.9; color:#06243f; text-transform:none; letter-spacing:.2px}
 
-    .tipo-cuenta{
+    .subcallout{
+      margin:10px auto 10px; max-width:560px; text-align:center;
+      padding:10px 12px; border-radius:14px; font-weight:800; color:#e7f4ff;
+      background:rgba(98,195,255,.14); border:1px solid rgba(98,195,255,.35);
+    }
+    .subcallout b{color:#ffffff}
+
+    .tipo-cuenta,
+    .cent-type{
       width:100%; max-width:560px; display:block; margin:10px auto 6px;
       border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
       border:1px solid rgba(255,255,255,.08); background:#07152a;
+      cursor:zoom-in; transition:transform .2s ease;
     }
+    .tipo-cuenta:hover,
+    .cent-type:hover{ transform:scale(1.01) }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; z-index:100;
+      background:rgba(0,0,0,.88);
+      display:none; align-items:center; justify-content:center;
+      padding:16px;
+    }
+    .lightbox.show{ display:flex; animation:fade .18s ease-out }
+    .lightbox img{
+      max-width:95vw; max-height:90vh;
+      border-radius:16px; box-shadow:0 18px 50px rgba(0,0,0,.5);
+    }
+    .lightbox .hint{
+      position:fixed; bottom:14px; left:0; right:0; text-align:center;
+      color:#cfe3ff; font-size:12px; opacity:.85;
+      padding:0 10px;
+    }
+    @keyframes fade{from{opacity:0} to{opacity:1}}
+    .no-scroll{ overflow:hidden; }
 
     /* Footer */
     footer{padding:24px 0;color:var(--muted);font-size:12px}
@@ -188,21 +219,36 @@
     <div class="container">
       <h2 class="reveal">Pasos</h2>
 
-      <!-- Paso 1 (imagen destacada + video) -->
+      <!-- Paso 1 (imagen destacada + opción CENT + video) -->
       <div class="step reveal" id="broker">
         <h3>1) Crear cuenta en el broker (y verificación básica)</h3>
         <p class="mini">Abre el enlace oficial y regístrate. El video también muestra cómo verificar (ID + comprobante ≤ 90 días, a tu nombre).</p>
 
-        <!-- LLAMADO MUY NOTORIO -->
+        <!-- LLAMADO grande para Standard Free Swap -->
         <div class="callout">Este es el <u>tipo de cuenta</u> que debes crear
-          <small>Revísalo antes de continuar. Fondear &gt; $1,000 USD: elige <b>USD</b> + <b>MT5 + Standard Free Swap</b>.</small>
+          <small>Si fondeas &gt; $1,000 USD: elige <b>USD</b> + <b>MT5 + Standard Free Swap</b>.</small>
         </div>
 
-        <!-- Imagen ANTES del video -->
+        <!-- Imagen ANTES del video (cuenta Standard) -->
         <img class="tipo-cuenta"
              src="https://github.com/Globallegacy/ActivacionCopytrade/blob/cc11a6e79828c48b2ab9415d716abdeddbb2dfff/Captura%20de%20pantalla%202025-10-13%20200201.png?raw=1"
-             alt="Ejemplo del tipo de cuenta correcto a crear"
-             loading="lazy" />
+             alt="Tipo de cuenta correcto: Standard Free Swap"
+             loading="lazy"
+             tabindex="0"
+             role="button"
+             aria-label="Abrir imagen ampliada: cuenta Standard Free Swap" />
+
+        <!-- NUEVO: opción CENT para < $1,000 -->
+        <div class="subcallout reveal">Si tu capital es <b>menor a $1,000 USD</b>, abre una cuenta <b>CENT</b>.</div>
+
+        <!-- Imagen de selección CENT (link que enviaste) -->
+        <img class="cent-type reveal"
+             src="https://github.com/Globallegacy/ActivacionCopytrade/blob/a6131391a373a15ffcdb012fcee7466bc702ea02/Captura%20de%20pantalla%202025-10-15%20145805.png?raw=1"
+             alt="Cómo seleccionar cuenta CENT"
+             loading="lazy"
+             tabindex="0"
+             role="button"
+             aria-label="Abrir imagen ampliada: selección de cuenta CENT" />
 
         <!-- Video Paso 1 -->
         <iframe class="short"
@@ -261,17 +307,43 @@
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de la imagen">
+    <img id="lightboxImg" alt="Imagen ampliada" />
+    <div class="hint">Toca en cualquier parte o presiona Esc para cerrar</div>
+  </div>
+
   <script>
     // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animaciones de aparición
+    // Apariciones
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
       });
     }, {threshold: 0.12});
-    document.querySelectorAll('.reveal, .callout, .tipo-cuenta').forEach(el=> io.observe(el));
+    document.querySelectorAll('.reveal, .callout, .tipo-cuenta, .subcallout, .cent-type').forEach(el=> io.observe(el));
+
+    // Lightbox para imágenes del Paso 1
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    function abrirLB(src){
+      lbImg.src = src;
+      lb.classList.add('show');
+      document.body.classList.add('no-scroll');
+    }
+    function cerrarLB(){
+      lb.classList.remove('show');
+      document.body.classList.remove('no-scroll');
+      setTimeout(()=>{ lbImg.removeAttribute('src'); }, 150);
+    }
+    document.querySelectorAll('.tipo-cuenta, .cent-type').forEach(img=>{
+      img.addEventListener('click', ()=> abrirLB(img.src));
+      img.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ abrirLB(img.src); }});
+    });
+    lb.addEventListener('click', cerrarLB);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb.classList.contains('show')) cerrarLB(); });
   </script>
 </body>
 </html>
